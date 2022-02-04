@@ -1,0 +1,90 @@
+---
+title: "Purdue Climate dashboard"
+author: Suhail Mahmud
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: rows
+    social: menu
+    source_code: embed
+runtime: shiny
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+library(shiny)
+library(dplyr)
+library(plotly)
+library(rio)
+library(plyr)
+
+```
+
+```{r data}
+data <- import_list("/home/suhail/Downloads/results_purdue.xls")
+
+Meteorological.Variables = c("Mean_temp_f", "Mean_rh_perc", "Mean_precp_in","Mean_dewpoint_f","Mean_windspeed_h", "Mean_winddir_deg")
+
+Months.variable = c(month.name)
+
+```
+
+Column {.sidebar data-width=200}
+-----------------------------------------------------------------------
+```{r}
+
+selectInput("Months", label = "Select Month Name:", choices = Months.variable)
+
+selectInput("meteorological_Variables", label = "Select Meteorological Variable:", choices = Meteorological.Variables)
+
+  
+
+```
+Column {data-width=400}
+-----------------------------------------------------------------------
+
+### Boxplot with hourly mean
+
+```{r}
+renderPlotly({
+   plot_ly(data[[input$Months]],
+              y = data[[input$Months]][[input$meteorological_Variables]],
+              type = "box")%>%
+  layout(title = input$Months,
+         yaxis = list(title = input$meteorological_Variables))%>%
+  add_trace(y=list(),name=input$meteorological_Variables)
+})
+```
+
+
+Column {data-width=400}
+-----------------------------------------------------------------------
+
+### Scatter plot
+
+```{r}
+renderPlotly({
+   plot_ly(data[[input$Months]],
+              y = data[[input$Months]][[input$meteorological_Variables]],
+              type = "scatter") %>%
+  layout(title = "",
+         xaxis = list(title = "Hours"),
+         yaxis = list(title = input$meteorological_Variables ))
+
+})
+
+```
+
+### Histogram
+
+```{r}
+renderPlotly({
+  plot_ly(x = data[[input$Months]][[input$meteorological_Variables]], type = "histogram",  marker = list(color = "#008ae6",
+                            line = list(color = "darkgray",
+                                        width = 5))) %>%
+  layout(title = "",
+         xaxis = list(title = input$meteorological_Variables),
+         yaxis = list(title = "Frequency" ),
+         
+                      zeroline = TRUE)
+})
+```
