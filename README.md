@@ -1,3 +1,2 @@
-# python example 
-Reading different geographical file(map, weather model, met varaibales). This is more like a introductory level python script if you want to get your hand dirty in 
-reading met files using different python modules and libray.
+# Data Visualizaton
+Reading different geographical file(map, weather model, met varaibales) and plot them using different library including but not limited to Shiny, Geomap, Seaborn and others. 
