@@ -1,18 +1,16 @@
-# Climate Scientist Coding Challenge
+# Climate Scientist work demonstration
 
-This is an open-ended assessment which gives you a chance to demonstrate:
+This is an open-ended assessment in which i demonstrate:
 - expertise of climate dynamics and subseasonal-to-seasonal (S2S) teleconnections
 - proficiency with standard geospatial analysis toolsets
 - creativity and ability to quickly prototype a solution
 
-We have provided you with a 70-year sample dataset of several climate variables from the ERA5 reanalysis. The data are reprocessed to weekly resolution on a 1&deg; grid. Your assignment is to:
+I start working with a 70-year sample dataset of several climate variables from the ERA5 reanalysis. The data are reprocessed to weekly resolution on a 1&deg; grid. My main goal is :
 - choose a single geo coordinate (or aggregated region) in the dataset to predict
 - choose a single variable to predict
 - choose a forecast lead time between 2-52 weeks
 - build a statistical, physical, or machine learning predictive model
 - test and analyze its predictive performance by applying it to out of sample data
-
-You should aim for the most predictive model you can, and choose your geographic domain and input variables accordingly. Time limit is two hours - we don't want this to be a second job for you.  If you are not done after two hours, it is OK to submit a partial answer.
 
 
 
@@ -23,7 +21,6 @@ You should aim for the most predictive model you can, and choose your geographic
 import xarray as xr
 import pandas as pd
 import numpy as np
-#from eofs.xarray import Eof
 import xesmf as xe
 import matplotlib.pyplot as plt
 import tensorflow as tf
@@ -82,11 +79,6 @@ plt.ylabel('temp c')
 
 
 
-```python
-# Oh no, that correlation looks terrible!
-# We need a climate scientist to identify and exploit a better relationship
-
-```
 
 ## Declaring variables and making them anamolies
 
