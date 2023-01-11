@@ -16,3 +16,5 @@ Reading different geographical file(map, weather model, met varaibales) and plot
 
 ![image](https://user-images.githubusercontent.com/18476138/152620227-a23e7d50-9c3e-4912-907c-98932cc0a275.png)
 
+3. Concentration map using folium 
+![ezgif com-gif-maker (1)](https://user-images.githubusercontent.com/18476138/211842743-7c73202f-88bc-4278-afbd-272972a775a6.gif)
