@@ -14,7 +14,7 @@ from sklearn.metrics import silhouette_samples, silhouette_score
 import matplotlib.pyplot as plt
 
 #
-# Load IRIS dataset
+# Load  dataset
 #
 df = pd.read_csv(
     r"\\kcc-mdstore01\Public\SCS\ML_Derecho\BlobFiles\NEXRAD\objects\19960101_RadarPolygonPoints55_100_BinaryDilatation2Erosion.csv")
